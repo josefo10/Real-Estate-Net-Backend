@@ -22,7 +22,7 @@ public class OwnerService : IOwnerService
 
     public async Task Update(Guid id, Owner owner)
     {
-        var ownerActual = context.Owners.Find();
+        var ownerActual = context.Owners.Find(id);
 
         if(ownerActual != null)
         {
@@ -34,7 +34,7 @@ public class OwnerService : IOwnerService
 
     public async Task Delete(Guid id)
     {
-        var ownerActual = context.Owners.Find();
+        var ownerActual = context.Owners.Find(id);
 
         if(ownerActual != null)
         {

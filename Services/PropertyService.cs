@@ -23,7 +23,7 @@ public class PropertyService: IPropertyService
 
     public async Task Update(Guid id, Property property)
     {
-        var propertyActual = context.Properties.Find();
+        var propertyActual = context.Properties.Find(id);
 
         if(propertyActual != null)
         {
@@ -39,7 +39,7 @@ public class PropertyService: IPropertyService
 
     public async Task Delete(Guid id)
     {
-        var propertyActual = context.Properties.Find();
+        var propertyActual = context.Properties.Find(id);
 
         if(propertyActual != null)
         {

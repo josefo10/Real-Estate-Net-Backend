@@ -11,6 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSqlServer<ModelsContext>(builder.Configuration.GetConnectionString("cnModels"));
+builder.Services.AddScoped<IOwnerService, OwnerService>();
+builder.Services.AddScoped<IPropertyService, PropertyService>();
+builder.Services.AddScoped<IPropertyImageService, PropertyImageService>();
+builder.Services.AddScoped<IPropertyTraceService, PropertyTraceService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

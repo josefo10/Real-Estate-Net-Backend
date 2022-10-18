@@ -23,7 +23,7 @@ public class PropertyImageService: IPropertyImageService
 
    public async Task Update(Guid id, PropertyImage propertyImage)
     {
-        var propertyImageActual = context.PropertyImages.Find();
+        var propertyImageActual = context.PropertyImages.Find(id);
 
         if(propertyImageActual != null)
         {
@@ -34,7 +34,7 @@ public class PropertyImageService: IPropertyImageService
 
     public async Task Delete(Guid id)
     {
-        var propertyImageActual = context.PropertyImages.Find();
+        var propertyImageActual = context.PropertyImages.Find(id);
 
         if(propertyImageActual != null)
         {

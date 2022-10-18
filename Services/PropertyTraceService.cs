@@ -23,7 +23,7 @@ public class PropertyTraceService: IPropertyTraceService
 
     public async Task Update(Guid id, PropertyTrace propertyTrace)
     {
-        var propertyTraceActual = context.PropertyTraces.Find();
+        var propertyTraceActual = context.PropertyTraces.Find(id);
 
         if(propertyTraceActual != null)
         {
@@ -38,7 +38,7 @@ public class PropertyTraceService: IPropertyTraceService
 
     public async Task Delete(Guid id)
     {
-        var propertyTraceActual = context.PropertyTraces.Find();
+        var propertyTraceActual = context.PropertyTraces.Find(id);
         if(propertyTraceActual != null)
         {
             context.Remove(propertyTraceActual);
