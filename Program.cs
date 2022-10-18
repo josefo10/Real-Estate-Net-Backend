@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using proyectoef;
 using proyectoef.Models;
 
@@ -30,5 +32,11 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGet("/dbconexion", async ([FromServices] ModelsContext dbContext) =>
+{
+    dbContext.Database.EnsureCreated();
+    return Results.Ok("Base de datos en memoria: " + dbContext.Database.IsInMemory());
+});
 
 app.Run();
